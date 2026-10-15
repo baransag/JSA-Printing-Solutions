@@ -15,7 +15,7 @@ export const SCENES = [
   { title: 'Business cards & foil', note: 'Cards are hot-stamped with gold foil and stacked.' },
   { title: 'Sticker showcase', note: 'A finished sheet leaves the press and stickers peel off.' },
 ] as const;
-export const DURATIONS = [9, 10, 9.5, 9.5, 10.5];
+export const DURATIONS = [6, 6.5, 6, 6, 7];
 const SPACING = 17;
 
 type V3 = [number, number, number];
