@@ -1,0 +1,168 @@
+:root {
+  /* Brand Palette from Guidelines */
+  --color-ivory: #F8F4EC;
+  --color-ivory-light: #FDFBF7;
+  --color-ivory-warm: #FAF6EE;
+  --color-ivory-dark: #ECE5D6;
+  --color-ivory-border: rgba(181, 138, 60, 0.22);
+  
+  --color-gold: #B58A3C;
+  --color-gold-light: #E0BC6D;
+  --color-gold-shimmer: #F5D98B;
+  --color-gold-deep: #856122;
+  --color-gold-border: rgba(181, 138, 60, 0.35);
+  --color-gold-glow: rgba(181, 138, 60, 0.25);
+  
+  --color-emerald: #0F5C4D;
+  --color-emerald-light: #187764;
+  --color-emerald-deep: #0A4035;
+  --color-emerald-darkest: #05231D;
+  
+  --color-burgundy: #7B1E2B;
+  --color-burgundy-light: #9B2838;
+  --color-burgundy-deep: #52111A;
+  --color-burgundy-darkest: #30080E;
+  
+  --color-charcoal: #161817;
+  --color-charcoal-soft: #282C29;
+  --color-muted: #6B726C;
+  --color-muted-light: #9DA39E;
+
+  /* Metallic & Surface Gradients */
+  --grad-gold-foil: linear-gradient(135deg, #F9E2A8 0%, #B58A3C 40%, #E6C577 70%, #876220 100%);
+  --grad-emerald-mesh: radial-gradient(circle at 80% 20%, #157360 0%, #0F5C4D 45%, #05241E 100%);
+  --grad-burgundy-mesh: radial-gradient(circle at 20% 80%, #942535 0%, #7B1E2B 45%, #380A11 100%);
+  --grad-ivory-editorial: linear-gradient(180deg, #FAF7F0 0%, #F8F4EC 50%, #F3EDE0 100%);
+  --grad-card-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 244, 236, 0.95) 100%);
+
+  /* Fonts */
+  --font-serif: 'Cinzel', serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px rgba(15, 92, 77, 0.06);
+  --shadow-card: 0 10px 30px -5px rgba(15, 25, 20, 0.08), 0 0 1px 1px rgba(181, 138, 60, 0.15);
+  --shadow-card-hover: 0 24px 48px -12px rgba(15, 25, 20, 0.16), 0 0 2px 1px rgba(181, 138, 60, 0.4);
+  --shadow-luxury: 0 30px 60px -15px rgba(5, 35, 29, 0.35);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory-warm);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-deep);
+}
+
+/* Editorial Typography Helpers */
+.font-display {
+  font-family: var(--font-serif);
+  letter-spacing: 0.03em;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+  letter-spacing: -0.01em;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.gold-foil-text {
+  background: var(--grad-gold-foil);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gold-foil-bg {
+  background: var(--grad-gold-foil);
+}
+
+/* Subtle Shimmer keyframe */
+@keyframes foilShine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-shimmer {
+  background-size: 200% 200%;
+  animation: foilShine 8s ease infinite;
+}
+
+/* Glass & Border Utilities */
+.luxury-border {
+  border: 1px solid var(--color-gold-border);
+}
+
+.luxury-border-strong {
+  border: 1px solid var(--color-gold);
+}
+
+.luxury-card {
+  background: var(--grad-card-surface);
+  border: 1px solid var(--color-ivory-border);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-md);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(181, 138, 60, 0.45);
+  transform: translateY(-4px);
+}
+
+/* Interactive Cursor / Button states */
+button, a {
+  transition: all 0.25s ease;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
